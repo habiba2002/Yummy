@@ -1,0 +1,96 @@
+body,
+.recipes-details,
+.categories,
+.areas,
+.ingradients,
+.contact,
+.search {
+    background-color: black;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Loading screen */
+.loading-screen {
+    display: flex;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px dotted #FFF;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 2s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Side bar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.layer {
+    top: 500px;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255, 0.9);
+    transition: all 1s;
+}
+
+.item:hover .layer,
+.categoryitem:hover .layer,
+.categorymealitem:hover .layer,
+.areamealitem:hover .layer,
+.ingmealitem:hover .layer {
+    top: 5px;
+}
+
+.recipes-details,
+.categories,
+.search,
+.areas,
+.ingradients {
+    overflow-y: scroll;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+
+#recipes-details,
+.categories,
+.areas,
+.ingradients,
+.search,
+.contact {
+    display: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+}

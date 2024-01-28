@@ -1,0 +1,153 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div
+        class="loading-screen position-fixed top-0 end-0 start-0 bottom-0 bg-black z-3 justify-content-center align-items-center">
+        <span class="loader"></span>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar d-flex h-100 w-25 text-white z-3">
+        <div class="left-side bg-black">
+            <div class="upper-section h-75 px-3">
+                <ul class="list-unstyled py-3 cursor-pointer" id="main-list">
+                    <li class="py-2 cursor-pointer"  data="search">Search</li>
+                    <li class="py-2 cursor-pointer"  data="categories">Categories</li>
+                    <li class="py-2 cursor-pointer"  data="areas">Areas</li>
+                    <li class="py-2 cursor-pointer"  data="ingradients">Ingredients</li>
+                    <li class="py-2 cursor-pointer"  data="contact">Contact Us</li>
+                </ul>
+                <small>Dark theme</small>
+                <div class="me-1 bg-dark box" style="width: 50px; height: 50px;"></div>
+            </div>
+            <div class="lower-section h-25 py-3 px-3">
+                <div class="pb-2">
+                    <i class="fa-brands fa-facebook-f me-1"></i>
+                    <i class="fa-brands fa-twitter me-1"></i>
+                    <i class="fa-solid fa-earth me-1"></i>
+                </div>
+                <div>
+                    <small>Copyright Â© 2019 All Rights
+                        Reserved.</small>
+                </div>
+            </div>
+        </div>
+        <div class="right-side bg-white px-1 d-flex flex-column justify-content-between">
+            <img src="images/logo.png" class="logo text-center mt-4" style="width: 50px; height: 55px;">
+            <div class="text-center">
+                <i id="icon-change" class="fa-solid fa-bars text-dark fs-4"></i>
+            </div>
+            <div class="pt-5 text-dark mb-5">
+                <i class="fa-solid fa-earth w-100 pb-1"></i>
+                <i class="fa-solid fa-share-nodes w-100"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <section class="default-recipes position-absolute p-5 ">
+        <div class="row g-2" id="default-recipes">
+        </div>
+    </section>
+
+    <!-- Details Page -->
+    <section class="recipes-details position-fixed  p-5 gap-5 text-white" id="recipes-details">
+    </section>
+
+    <!-- Category Page -->
+    <section class="categories position-fixed  p-5">
+        <div class="row g-2" id="categories">
+        </div>
+    </section>
+
+    <!-- Area Page -->
+    <section class="areas position-fixed  p-5">
+        <div class="row g-2" id="areas">
+        </div>
+    </section>
+
+    <!-- Ingradients Page -->
+    <section class="ingradients position-fixed  p-5">
+        <div class="row g-2" id="ingradients">
+        </div>
+    </section>
+
+    <!-- contact Us -->
+    <section class="contact position-fixed p-5 gap-5 ">
+        <div class="container w-50 mx-auto d-flex justify-content-center align-items-center">
+            <form id="myform">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control w-100" placeholder="Enter Your Name" id="nameInput" />
+                        <div class="alert alert-danger m-0 mt-1 d-none" id="namealert">Special characters and numbers
+                            not allowed</div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control w-100" placeholder="Enter Your Email" id="emailInput" />
+                        <div class="alert alert-danger m-0 mt-1 d-none " id="emailInputalert">Email not valid
+                            *exemple@yyy.zzz</div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control w-100" placeholder="Enter Your Phone" id="phoneInput" />
+                        <div class="alert alert-danger m-0 mt-1 d-none" id="phoneInputalert">Enter valid Phone Number
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control w-100" placeholder="Enter Your Age" id="ageInput" />
+                        <div class="alert alert-danger m-0 mt-1 d-none" id="ageInputalert">Enter valid Age (from 1 to
+                            100)</div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="password" class="form-control w-100" placeholder="Enter Your Password"
+                            id="passwordInput" />
+                        <div class="alert alert-danger m-0 mt-1 d-none" id="passInputalert">Enter valid password
+                            (Minimum 8 characters, at least one letter and one number)</div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="password" class="form-control w-100" placeholder="Enter Your Repassword"
+                            id="repasswordInput" />
+                        <div class="alert alert-danger m-0 mt-1 d-none" id="repassInputalert">Enter valid repassword
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center py-4">
+                    <button type="submit" id="enable" class="btn btn-danger">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+ 
+    <!-- Search Page -->
+    <section class="search position-fixed  p-5">
+        <div class="seaech-inputs d-flex align-items-start justify-content-evenly py-4">
+            <input type="text" placeholder="Search By Name" class="bg-white-subtle form-control w-30" id="meal-name" />
+            <input type="text" placeholder="Search By First Letter" class="bg-white-subtle form-control w-30 "
+                id="fletter" />
+        </div>
+        <div class="row g-2" id="search-container">
+        </div>
+    </section>
+
+
+
+
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
