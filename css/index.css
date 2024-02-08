@@ -77,8 +77,8 @@ body::-webkit-scrollbar {
     overflow-y: scroll;
 }
 
-.w-30 {
-    width: 30% !important;
+.w-40 {
+    width: 40% !important;
 }
 
 #recipes-details,

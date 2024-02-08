@@ -1,13 +1,8 @@
 //Jquery
-// Loading screen
-$(document).ready(function () {
-    $(".loading-screen").fadeOut(2500)
-})
 
 $(".box").click(function (info) {
     var color = $(info.target).css("background-color")
     $("body,.recipes-details,.categories,.areas,.ingradients,.contact,.search").css({ "background-color": color })
-
 })
 
 // side bar
@@ -107,8 +102,10 @@ var defaultMeals
 var recipesDeatails
 
 async function getInitialMeals() {
+    $(".loading-screen").fadeIn(1000)
     let response = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=")
     let data = await response.json()
+    $(".loading-screen").fadeOut(3000)
     defaultMeals = data.meals
     displayDefaultRecipes()
     var cards = document.getElementsByClassName("item")
@@ -145,8 +142,10 @@ var recipe
 var recipeByLetter
 
 async function getMealsByname(name) {
+    $(".loading-screen").css({ display: "block" })
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
     let data = await response.json()
+    $(".loading-screen").fadeOut(2000)
     recipe = data.meals
 }
 
@@ -171,8 +170,10 @@ document.getElementById("meal-name").addEventListener("keyup", function () {
 })
 
 async function getMealsByletter(letter) {
+    $(".loading-screen").css({ display: "block" })
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${letter}`)
     let data = await response.json()
+    $(".loading-screen").fadeOut(2000)
     recipeByLetter = data.meals
 }
 
@@ -214,8 +215,10 @@ var categories
 var allMealsByCategory
 
 async function getMealsCategories() {
+    $(".loading-screen").css({ display: "block" })
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
     let data = await response.json()
+    $(".loading-screen").fadeOut(1000)
     categories = data.categories
     displayCategories()
     showCardsAndDetails("categoryitem", "categoryname", getMealsByCategory, displayAllMealsByCategory, "categorymealitem", ".categories")
@@ -241,8 +244,10 @@ function displayCategories() {
 }
 
 async function getMealsByCategory(category) {
+    $(".loading-screen").css({ display: "block" })
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
     let data = await response.json()
+    $(".loading-screen").fadeOut(1000)
     allMealsByCategory = data.meals
 }
 
@@ -270,8 +275,10 @@ var areas
 var allMealsByArea
 
 async function getMealsAreas() {
+    $(".loading-screen").css({ display: "block" })
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`)
     let data = await response.json()
+    $(".loading-screen").fadeOut(1000)
     areas = data.meals
     displayareas()
     showCardsAndDetails("area-item", "areaName", getMealsByArea, displayAllMealsByArea, "areamealitem", ".areas")
@@ -292,8 +299,10 @@ function displayareas() {
 }
 
 async function getMealsByArea(area) {
+    $(".loading-screen").css({ display: "block" })
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`)
     let data = await response.json()
+    $(".loading-screen").fadeOut(1000)
     allMealsByArea = data.meals
 }
 
@@ -321,8 +330,10 @@ var Ingradients
 var allMealsByingradient
 
 async function getMealsIngradient() {
+    $(".loading-screen").css({ display: "block" })
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
     let data = await response.json()
+    $(".loading-screen").fadeOut(1000)
     Ingradients = data.meals
     displayIngradient()
     showCardsAndDetails("ingredientitem", "ingradientname", getMealsByIngradient, displayAllMealsByIngradient, "ingmealitem", ".ingradients")
@@ -348,8 +359,10 @@ function displayIngradient() {
 }
 
 async function getMealsByIngradient(ingradient) {
+    $(".loading-screen").css({ display: "block" })
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingradient}`)
     let data = await response.json()
+    $(".loading-screen").fadeOut(1000)
     allMealsByingradient = data.meals
 }
 
@@ -532,4 +545,3 @@ for (var i = 0; i < list.length; i++) {
 
 // Call Main Page
 getInitialMeals()
-
